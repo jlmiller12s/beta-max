@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AvatarForge 3D Builder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Three.js Avatar Workshop</p>
+        <h1>Craft a custom 3D AI avatar with real-time WebGL preview</h1>
+        <p>Build game-style avatars with archetype, armor, loadout, and pose controls, then export a generation-ready 3D spec.</p>
+      </div>
+      <button id="randomizeBtn" class="cta">Randomize Build</button>
+    </header>
+
+    <main class="layout">
+      <section class="panel controls">
+        <h2>3D Character Builder</h2>
+
+        <label>Avatar codename<input id="avatarName" type="text" value="Nova Sentinel" maxlength="28" /></label>
+        <label>Class archetype
+          <select id="archetypeSelect"><option>Cyber Ranger</option><option>Arcane Tank</option><option>Stealth Assassin</option><option>Solar Paladin</option><option>Mech Summoner</option></select>
+        </label>
+        <label>Armor material
+          <select id="armorSelect"><option>Chromed Titanium</option><option>Matte Carbon</option><option>Iridescent Alloy</option><option>Obsidian Ceramic</option></select>
+        </label>
+        <label>Helmet rig
+          <select id="helmetSelect"><option>Visor Crown</option><option>Horned Frame</option><option>Aero Mask</option><option>Halo Rig</option></select>
+        </label>
+        <label>Weapon loadout
+          <select id="weaponSelect"><option>Photon Blade</option><option>Rail Pulse Rifle</option><option>Arc Staff</option><option>Twin Plasma Daggers</option></select>
+        </label>
+        <label>Companion drone
+          <select id="droneSelect"><option>None</option><option>Scout Orb</option><option>Medic Wisp</option><option>Shield Sentinel</option></select>
+        </label>
+        <label>Core energy color<input id="colorPicker" type="color" value="#6a5dff" /></label>
+        <label>Pose intensity<input id="poseRange" type="range" min="1" max="5" value="3" /><span id="poseLabel">Neutral</span></label>
+        <label>Signature skill<textarea id="abilityInput" rows="2">Deploys a holographic shield drone swarm.</textarea></label>
+
+        <button id="exportBtn" class="secondary">Export 3D Avatar Spec</button>
+      </section>
+
+      <section class="panel preview">
+        <h2>Live Three.js Preview</h2>
+        <div class="stage" id="stage"></div>
+
+        <div class="meta">
+          <h3 id="previewName">Nova Sentinel</h3>
+          <p id="previewBuild">Cyber Ranger • Chromed Titanium • Visor Crown</p>
+          <p id="previewLoadout">Photon Blade • No drone</p>
+        </div>
+
+        <h3>Character Stats</h3>
+        <div class="stats">
+          <div class="stat-row"><span>Power</span><div class="bar"><i id="powerBar"></i></div></div>
+          <div class="stat-row"><span>Agility</span><div class="bar"><i id="agilityBar"></i></div></div>
+          <div class="stat-row"><span>Defense</span><div class="bar"><i id="defenseBar"></i></div></div>
+        </div>
+
+        <h3>3D Generation Prompt</h3>
+        <p id="promptOutput" class="prompt"></p>
+      </section>
+    </main>
+
+    <footer><p>AvatarForge 3D · Powered by three.js.</p></footer>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
